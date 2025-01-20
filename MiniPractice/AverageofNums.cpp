@@ -27,6 +27,8 @@ int main(){
     cout << "Insert the third value: " << endl;
     cin >> z;
 
+    cout << "The sum of your numbers is: " << SumNumbers(x,y,z) << endl;
+
     cout << "The average of your numbers is: " << AverageNumbers(SumNumbers(x,y,z)) << endl;
 
     return 0; 
