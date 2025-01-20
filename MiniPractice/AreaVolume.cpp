@@ -12,7 +12,7 @@ int main(){
     float radio, area, volume;
 
     cout << "Area and volume of a sphere in cms" << endl;
-    cout << "What is the radious?" << endl;
+    cout << "What is the radius?" << endl;
 
     cin >> radio;
 
