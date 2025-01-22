@@ -17,7 +17,7 @@ int main(){
 
     cout << "functionVal(a,b) ->" << functionVal(a,b) << endl;
 
-    cout << "The new values of A and B now are: " << a << " and " << b << "\n"<<endl; 
+    cout << "The new values of A and B now are: " << a << " and " << b << "\n"<< endl; 
 
     cout << "Reference" << endl;
     cout << "The values of A and B are respectively: " << a << " and " << b << endl;
