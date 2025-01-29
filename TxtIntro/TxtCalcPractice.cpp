@@ -45,9 +45,15 @@ int main(){
             std::cout << "Your sum of " << value1 << " * " << value2 << " = " << result << std::endl;
         break;
     case 4:
-            result = value1 / value2;
-            WriteFile << "Your sum of " << value1 << " / " << value2 << " = " << result << "\n";
-            std::cout << "Your sum of " << value1 << " / " << value2 << " = " << result << std::endl;
+            if(value2 != 0){
+                result = value1 / value2;
+                WriteFile << "Your sum of " << value1 << " / " << value2 << " = " << result << "\n";
+                std::cout << "Your sum of " << value1 << " / " << value2 << " = " << result << std::endl;
+            }
+            else{
+                std::cout << "You cant divide by 0";    
+            }
+            
         break;
     case 5: 
             std::cout << "Closing . . . " << std::endl;
@@ -58,11 +64,7 @@ int main(){
         break;
     }
     } while (operation != 5);
-    
-
-
-
-    
+        
     std::ifstream ReadFile(fileName);
     if(ReadFile.fail()){
         std::cout << "File not found";

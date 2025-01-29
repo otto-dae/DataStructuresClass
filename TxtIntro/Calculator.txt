@@ -2,4 +2,3 @@ Your numbers are: 4 and 5
 Your sum of 4 / 5 = 0
 Your numbers are: 1 and 7
 Your sum of 1 + 7 = 8
-Your numbers are: 4 and 5
