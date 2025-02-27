@@ -1,0 +1,32 @@
+Student number 0
+Student's name Otto
+Student's age 20
+
+Student number 1
+Student's name a
+Student's age 1
+
+Student number 2
+Student's name b
+Student's age 2
+
+Student number 3
+Student's name c
+Student's age 3
+
+Student number 0
+Student's name Otto
+Student's age 20
+
+Student number 1
+Student's name Emanuel
+Student's age 19
+
+Student number 2
+Student's name Marino
+Student's age 19
+
+Student number 3
+Student's name Rodrigo
+Student's age 22
+

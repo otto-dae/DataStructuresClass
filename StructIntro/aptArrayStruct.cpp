@@ -1,10 +1,9 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>
+#include <fstream>
 
 using namespace std;
-
-
 
 struct Data{
     string Name;
@@ -13,6 +12,8 @@ struct Data{
 
 void insertData(Data *student, Data aptDataArray[]);
 void showData(Data aptDataArray[]);
+void writeData(ofstream& file, Data aptDataArray[]);
+void loadData(ifstream& file);
 
 
 int main(){
@@ -21,9 +22,25 @@ int main(){
     Data *aptData = new Data();
     Data *aptDataArray = new Data[5]();
 
-    insertData(aptData, aptDataArray);
+    string fileName = "students.txt";
 
+    if(std::ifstream(fileName)){
+        std::cout << "File already exists" << std::endl;
+    }
+
+    std::ifstream read; 
+
+    std::ofstream fout(fileName, std::ios::app); 
+    if(!fout){
+        std::cout << "File could not be created" << std:: endl;
+    }
+
+    insertData(aptData, aptDataArray);
     showData(aptDataArray);
+
+    writeData(fout, aptDataArray);
+    
+    loadData(read);
 
     delete aptData;
     delete[] aptDataArray;
@@ -55,7 +72,6 @@ int main(){
     }
  };
 
-
 void showData(Data aptDataArray[]){
     cout << "gathered info" << endl;
     for (size_t i = 0; i < 4; i++)
@@ -66,4 +82,29 @@ void showData(Data aptDataArray[]){
         cout << endl;
   
     }
+}
+
+void writeData(ofstream& fout, Data aptDataArray[]){
+
+    for (size_t i = 0; i < 4; i++){
+        fout << "Student number " << i << endl;
+        fout << "Student's name " << aptDataArray[i].Name << endl;   
+        fout << "Student's age " << aptDataArray[i].Age << endl;     
+        fout << endl;
+    }
+    fout.flush();
+    fout.close();
+}
+
+void loadData(ifstream& read){
+    
+    read.open("students.txt");
+
+    string content;
+
+    while(getline(read, content)){
+        cout << content << endl;
+    }
+
+    read.close();
 }
