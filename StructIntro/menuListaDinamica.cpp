@@ -9,7 +9,8 @@ struct Node{
     Node *next;
 };
 
-void insertList(Node *&, int );
+void insertList(Node *&, int);
+void showList();
 
 Node *head=NULL;
 
@@ -22,8 +23,10 @@ int main(){
 
     do
     {
-        cout << "\t DYNAMIC SYMPLY LINKED LIST MENU" << endl;
+        cout << "\t DYNAMIC SYMPLE LINKED LIST MENU" << endl;
         cout << "\n 1.- Insert list" << endl;
+        cout << "\n 2.- Show list" << endl;
+
         cout << "Select an option " <<endl;
         cin >> option;
 
@@ -34,6 +37,11 @@ int main(){
             cin >> n;
             insertList(head, n);
             break;
+
+        case 2:
+            
+            showList();
+            
         
         default:
         loop = false;
@@ -47,18 +55,31 @@ int main(){
 void insertList (Node *&head, int n){
     Node * new_node = new Node();
     new_node -> data = n;
-    Node *tail=head;
+    Node *actual=head;
     Node *aux;
 
-    while ((tail!=NULL) && (tail->data<n)){
-        aux = tail;
-        tail = tail -> next;
+    while ((actual!=NULL) && (actual->data<n)){
+        aux = actual;
+        actual = actual -> next;
     }
-    if(head==tail){
+    if(head==actual){
         head=new_node;
     }else{
-        aux = new_node;
+        aux->next = new_node;
     }
-    new_node -> next = tail;
+    new_node -> next = actual;
     cout << "Element added to list" << endl;
 }
+
+void showList(){
+
+    Node *actual=head;
+
+    while (actual != NULL)
+    {
+        cout << actual -> data << endl;
+        actual = actual -> next;
+    }
+    
+}
+
