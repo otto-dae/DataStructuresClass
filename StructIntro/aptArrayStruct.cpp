@@ -14,6 +14,7 @@ void insertData(Data *student, Data aptDataArray[]);
 void showData(Data aptDataArray[]);
 void writeData(ofstream& file, Data aptDataArray[]);
 void loadData(ifstream& file);
+void searchList(Data*, int);
 
 
 int main(){
