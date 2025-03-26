@@ -14,6 +14,9 @@ void showList();
 bool searchList(Node *, int);
 int addListValues();
 double averageListValues(int);
+void deleteFromList(Node *&, int);
+void deleteWholeList(Node *&);
+
 
 Node *head=NULL;
 
@@ -32,8 +35,7 @@ int main(){
         cout << "\n 3.- Search in list" << endl;
         cout << "\n 4.- Add all values in list" << endl;
         cout << "\n 5.- Average all values in list" << endl;
-
-
+        cout << "\n 6.- Delete from the list" << endl;
 
         cout << "Select an option " <<endl;
         cin >> option;
@@ -58,10 +60,10 @@ int main(){
             cin >> n;
 
             if(searchList(head, n) == true){
-                cout << "Element is in the list" <<endl;
+                cout << "Element " << n << "is in the list" <<endl;
             }
             else{
-                cout << "Element is not in the list" <<endl;
+                cout << "Element " << n << "is not in the list" <<endl;
 
             }
             break;
@@ -73,10 +75,20 @@ int main(){
 
         case 5:
 
-            
             cout << "All the values averaged is: " << averageListValues(addListValues()) << endl;
             break;
-           
+        
+        case 6:
+            cout << "Delete a value: ";
+            cin >> n;
+            deleteFromList(head, n);
+        break; 
+        
+        case 7:
+        deleteWholeList(head);
+    break;    
+    
+        
         default:
         loop = false;
             break;
@@ -87,6 +99,7 @@ int main(){
 }
 
 void insertList (Node *&head, int n){
+
     Node * new_node = new Node();
     new_node -> data = n;
     Node *actual=head;
@@ -96,7 +109,6 @@ void insertList (Node *&head, int n){
         cout << "unable to insert value";
         return;
     };
-
 
     while ((actual!=NULL) && (actual->data<n)){
         aux = actual;
@@ -165,7 +177,6 @@ int addListValues(){
 
 double averageListValues(int x){
 
-
     Node *actual=head;
     int totalElements = 0;
     while (actual != NULL)
@@ -177,5 +188,51 @@ double averageListValues(int x){
     return x/totalElements;
 }
 
+void deleteFromList(Node *& head, int n){
+
+    if(head!=nullptr){
+        Node *aux_delete = head;
+        Node * prev = nullptr;
+
+        while ((aux_delete != nullptr) && (aux_delete -> data != n))
+        {
+            prev = aux_delete;
+            aux_delete = aux_delete -> next;
+            cout << "kjsadds";
+        }
+
+        if(aux_delete == nullptr){
+            cout << "Element doesnt exist" << endl;
+        }
+        else if(prev == nullptr){
+            head = head ->next;
+            delete aux_delete;
+        }
+        else{
+            prev ->next = aux_delete -> next;
+            delete aux_delete;
+        }
+
+    }
 
 
+
+
+    
+}
+
+void deleteWholeList(Node *& head){
+
+        Node *aux_delete = head;
+        Node *next_node = nullptr;
+        while ((aux_delete != nullptr))
+        {
+            next_node = aux_delete -> next; 
+            delete aux_delete;
+            aux_delete = next_node;
+
+        }
+
+        head = nullptr;
+
+}
