@@ -12,10 +12,7 @@ struct Node{
 void insertList(Node *&, int);
 void showList();
 bool searchList(Node *, int);
-int addListValues();
-double averageListValues(int);
 void deleteFromList(Node *&, int);
-void deleteWholeList(Node *&);
 
 
 Node *head=NULL;
@@ -33,9 +30,8 @@ int main(){
         cout << "\n 1.- Insert list" << endl;
         cout << "\n 2.- Show list" << endl;
         cout << "\n 3.- Search in list" << endl;
-        cout << "\n 4.- Add all values in list" << endl;
-        cout << "\n 5.- Average all values in list" << endl;
-        cout << "\n 6.- Delete from the list" << endl;
+        cout << "\n 4.- Delete from the list" << endl;
+        cout << "\n 2.- Exit" << endl;
 
         cout << "Select an option " <<endl;
         cin >> option;
@@ -67,17 +63,6 @@ int main(){
 
             }
             break;
-            
-        case 4:
-            
-            cout << "All the values added is: " << addListValues() << endl;
-            break;
-
-        case 5:
-
-            cout << "All the values averaged is: " << averageListValues(addListValues()) << endl;
-            break;
-        
         case 6:
             cout << "Delete a value: ";
             cin >> n;

@@ -1,0 +1,5 @@
+Students in Data Structure Class: 
+          - Juan Garcia
+          - Maria Trejo
+          - Pedro Lopez
+          - Luiz Diaz
